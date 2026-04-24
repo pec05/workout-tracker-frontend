@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from "./shared/components/navbar/navbar.component";
 
 @Component({
@@ -11,4 +11,12 @@ import { NavbarComponent } from "./shared/components/navbar/navbar.component";
 })
 export class AppComponent {
   title = 'workout-tracker-frontend';
+
+private router = inject(Router);
+
+showNavBar(): boolean {
+  const hiddenRoutes = ['/login', '/register'];
+  return !hiddenRoutes.includes(this.router.url);
+}
+
 }
