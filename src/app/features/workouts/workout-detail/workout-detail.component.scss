@@ -1,0 +1,29 @@
+.detail-container {
+  padding: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+
+    h1 { margin: 0; }
+    .date { margin: 0; color: #666; font-size: 14px; }
+    button:last-child { margin-left: auto; }
+  }
+
+  .notes-card {
+    margin-bottom: 16px;
+    background-color: #fffde7;
+  }
+
+  .empty-card {
+    text-align: center;
+    padding: 32px;
+    color: #666;
+  }
+
+  .full-width { width: 100%; }
+}

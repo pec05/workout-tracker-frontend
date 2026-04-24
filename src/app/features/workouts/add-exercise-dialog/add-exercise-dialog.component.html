@@ -1,0 +1,50 @@
+<h2 mat-dialog-title>Add Exercise</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Exercise</mat-label>
+      <mat-select formControlName="exerciseId">
+        @for (exercise of exercises(); track exercise.id) {
+          <mat-option [value]="exercise.id">{{ exercise.name }}</mat-option>
+        }
+      </mat-select>
+      @if (form.get('exerciseId')?.hasError('required')) {
+        <mat-error>Please select an exercise</mat-error>
+      }
+    </mat-form-field>
+  </form>
+
+  <div class="sets-section">
+    <div class="sets-header">
+      <h3>Sets</h3>
+      <button mat-button color="primary" (click)="addSet()">
+        <mat-icon>add</mat-icon> Add Set
+      </button>
+    </div>
+
+    @for (set of sets(); track set.setNumber; let i = $index) {
+      <div class="set-row">
+        <span class="set-number">Set {{ i + 1 }}</span>
+        <mat-form-field appearance="outline" class="small-field">
+          <mat-label>Reps</mat-label>
+          <input matInput type="number" [value]="set.reps"
+            (change)="updateSet(i, 'reps', +$any($event.target).value)">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="small-field">
+          <mat-label>Weight (kg)</mat-label>
+          <input matInput type="number" [value]="set.weight"
+            (change)="updateSet(i, 'weight', +$any($event.target).value)">
+        </mat-form-field>
+        <button mat-icon-button color="warn" (click)="removeSet(i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    }
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()">Add Exercise</button>
+</mat-dialog-actions><p>add-exercise-dialog works!</p>

@@ -1,0 +1,29 @@
+.full-width { width: 100%; }
+
+.sets-section {
+  margin-top: 16px;
+
+  .sets-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    h3 { margin: 0; }
+  }
+
+  .set-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+
+    .set-number {
+      min-width: 40px;
+      font-weight: bold;
+    }
+
+    .small-field {
+      width: 120px;
+    }
+  }
+}

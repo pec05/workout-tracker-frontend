@@ -1,0 +1,60 @@
+<div class="detail-container">
+  <div class="header">
+    <button mat-icon-button (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <div>
+      <h1>{{ workout()?.name }}</h1>
+      <p class="date">{{ workout()?.date | date:'fullDate' }}</p>
+    </div>
+    <button mat-raised-button color="primary" (click)="openAddExerciseDialog()">
+      <mat-icon>add</mat-icon> Add Exercise
+    </button>
+  </div>
+
+  @if (workout()?.notes) {
+    <mat-card class="notes-card">
+      <mat-card-content>📝 {{ workout()?.notes }}</mat-card-content>
+    </mat-card>
+  }
+
+  <mat-accordion>
+    @for (we of workoutExercises(); track we.id) {
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>{{ we.exerciseName }}</mat-panel-title>
+          <mat-panel-description>{{ we.sets.length }} sets</mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <table mat-table [dataSource]="we.sets" class="full-width">
+          <ng-container matColumnDef="setNumber">
+            <th mat-header-cell *matHeaderCellDef>Set</th>
+            <td mat-cell *matCellDef="let s">{{ s.setNumber }}</td>
+          </ng-container>
+          <ng-container matColumnDef="reps">
+            <th mat-header-cell *matHeaderCellDef>Reps</th>
+            <td mat-cell *matCellDef="let s">{{ s.reps }}</td>
+          </ng-container>
+          <ng-container matColumnDef="weight">
+            <th mat-header-cell *matHeaderCellDef>Weight (kg)</th>
+            <td mat-cell *matCellDef="let s">{{ s.weight }}</td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="['setNumber', 'reps', 'weight']"></tr>
+          <tr mat-row *matRowDef="let row; columns: ['setNumber', 'reps', 'weight']"></tr>
+        </table>
+
+        <mat-action-row>
+          <button mat-button color="warn" (click)="deleteExercise(we.id!)">
+            <mat-icon>delete</mat-icon> Remove
+          </button>
+        </mat-action-row>
+      </mat-expansion-panel>
+    }
+  </mat-accordion>
+
+  @if (workoutExercises().length === 0) {
+    <mat-card class="empty-card">
+      <mat-card-content>No exercises yet. Add your first exercise! 💪</mat-card-content>
+    </mat-card>
+  }
+</div>
