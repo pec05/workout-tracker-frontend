@@ -4,13 +4,13 @@
 
   <!-- Desktop links -->
   <div class="nav-links">
-    <a mat-button routerLink="/dashboard">
+    <a mat-button routerLink="/dashboard" routerLinkActive="active-link">
       <mat-icon>dashboard</mat-icon> Dashboard
     </a>
-    <a mat-button routerLink="/workouts">
+    <a mat-button routerLink="/workouts" routerLinkActive="active-link">
       <mat-icon>fitness_center</mat-icon> Workouts
     </a>
-    <a mat-button routerLink="/exercises">
+    <a mat-button routerLink="/exercises" routerLinkActive="active-link">
       <mat-icon>list</mat-icon> Exercises
     </a>
     <button mat-button (click)="logout()">

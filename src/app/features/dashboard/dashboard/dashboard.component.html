@@ -1,4 +1,9 @@
-<div class="dashboard-container">
+@if (isLoading()) {
+  <div class="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+} @else {
+  <div class="dashboard-container">
   <h1>Dashboard</h1>
 
   <!-- Summary Cards -->
@@ -100,3 +105,9 @@
     </mat-card-content>
   </mat-card>
 </div>
+}
+
+
+
+
+

@@ -7,6 +7,7 @@ import { WorkoutService } from '../../../core/services/workout.service';
 import { MatTableModule } from '@angular/material/table';
 import { BaseChartDirective } from 'ng2-charts';
 import { ChartConfiguration } from 'chart.js';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {
   Chart,
   CategoryScale,
@@ -39,20 +40,23 @@ Chart.register(
     MatCardModule,
     MatTableModule ,
     DatePipe,
-    BaseChartDirective
+    BaseChartDirective,
+    MatProgressSpinnerModule
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
 
-   private statsService = inject(StatsService);
+  private statsService = inject(StatsService);
   private workoutService = inject(WorkoutService);
 
   recentWorkouts = signal<Workout[]>([]);
   personalRecords = signal<PersonalRecordDTO[]>([]);
   totalWorkouts = signal<number>(0);
   totalVolume = signal<number>(0);
+
+  isLoading = signal(true);
 
   volumeChartData = signal<ChartConfiguration<'bar'>['data']>({
   labels: [],
@@ -109,6 +113,7 @@ frequencyChartData = signal<ChartConfiguration<'line'>['data']>({
         fill: false
       }]
     });
+    this.isLoading.set(false);
   });
 }
 
