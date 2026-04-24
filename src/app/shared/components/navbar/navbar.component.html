@@ -1,8 +1,20 @@
 <mat-toolbar color="primary">
   <span>💪 Workout Tracker</span>
   <span class="spacer"></span>
-  <a mat-button routerLink="/dashboard">Dashboard</a>
-  <a mat-button routerLink="/workouts">Workouts</a>
-  <a mat-button routerLink="/exercises">Exercises</a>
-  <button mat-button (click)="logout()">Logout</button>
+
+  <!-- Desktop links -->
+  <div class="nav-links">
+    <a mat-button routerLink="/dashboard">
+      <mat-icon>dashboard</mat-icon> Dashboard
+    </a>
+    <a mat-button routerLink="/workouts">
+      <mat-icon>fitness_center</mat-icon> Workouts
+    </a>
+    <a mat-button routerLink="/exercises">
+      <mat-icon>list</mat-icon> Exercises
+    </a>
+    <button mat-button (click)="logout()">
+      <mat-icon>logout</mat-icon> Logout
+    </button>
+  </div>
 </mat-toolbar>

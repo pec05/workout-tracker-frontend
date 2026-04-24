@@ -47,4 +47,20 @@
     padding: 16px;
   }
 }
+
+@media (max-width: 768px) {
+    padding: 16px;
+
+    .stats-row {
+      flex-direction: column;
+
+      .stat-value {
+        font-size: 28px;
+      }
+    }
+
+    .charts-row {
+      flex-direction: column;
+    }
+  }
 }
