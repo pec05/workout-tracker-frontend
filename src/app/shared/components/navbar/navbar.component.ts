@@ -5,6 +5,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
+import { ThemeService } from '../../../core/services/theme.service';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-navbar',
@@ -14,7 +16,8 @@ import { RouterLink } from '@angular/router';
     MatButtonModule,
     MatIconModule,
     RouterLink,
-    RouterLinkActive
+    RouterLinkActive,
+    MatTooltipModule
 ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
@@ -23,10 +26,19 @@ export class NavbarComponent {
 
   private authService = inject(AuthService);
   private router = inject(Router);
+  private themeService = inject(ThemeService);
 
   logout(): void {
     this.authService.logout();
     this.router.navigate(['/login']);
+  }
+
+  toggleTheme(): void {
+    this.themeService.toggleTheme();
+  }
+
+  isDark(): boolean {
+    return this.themeService.isDarkMode();
   }
 
 }

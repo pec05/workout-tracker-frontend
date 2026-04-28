@@ -16,6 +16,10 @@
     <a mat-button routerLink="/profile" routerLinkActive="active-link">
       <mat-icon>person</mat-icon> Profile
     </a>
+
+    <button mat-icon-button (click)="toggleTheme()" [matTooltip]="isDark() ? 'Light mode' : 'Dark mode'">
+      <mat-icon>{{ isDark() ? 'light_mode' : 'dark_mode' }}</mat-icon>
+    </button>
     <button mat-button (click)="logout()">
       <mat-icon>logout</mat-icon> Logout
     </button>
