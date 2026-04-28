@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable, signal } from "@angular/core";
-import { AuthResponse } from "../models";
+import { AuthResponse, User } from "../models";
 import { Observable } from "rxjs/internal/Observable";
 import { tap } from "rxjs/internal/operators/tap";
 
@@ -29,6 +29,14 @@ export class AuthService {
 
   isAuthenticated(): boolean {
     return this.isAuthenticatedSignal();
+  }
+
+  updateProfile(username: string): Observable<User> {
+    return this.http.put<User>(`http://localhost:8080/api/users/profile`, { username });
+  }
+
+  changePassword(currentPassword: string, newPassword: string, confirmPassword: string): Observable<void> {
+    return this.http.put<void>(`http://localhost:8080/api/users/password`, { currentPassword, newPassword, confirmPassword });
   }
 
   private saveToken(token: string): void {

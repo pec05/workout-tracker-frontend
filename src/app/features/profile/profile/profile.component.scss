@@ -1,0 +1,18 @@
+.profile-container {
+  padding: 24px;
+  max-width: 600px;
+  margin: 0 auto;
+
+  h1 { margin-bottom: 24px; }
+
+  .section-card {
+    margin-bottom: 24px;
+    padding: 16px;
+  }
+
+  .full-width {
+    width: 100%;
+    margin-bottom: 16px;
+    display: block;
+  }
+}
