@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { WorkoutService } from '../../../core/services/workout.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -9,6 +9,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { DatePipe } from '@angular/common';
+import { MatFormField, MatFormFieldModule, MatLabel } from "@angular/material/form-field";
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-workout-list',
@@ -19,8 +21,12 @@ import { DatePipe } from '@angular/common';
     MatTableModule,
     MatIconModule,
     MatDialogModule,
-    DatePipe
-  ],
+    DatePipe,
+    MatFormField,
+    MatLabel,
+    MatFormFieldModule,
+    MatInputModule
+],
   templateUrl: './workout-list.component.html',
   styleUrl: './workout-list.component.scss'
 })
@@ -31,6 +37,13 @@ export class WorkoutListComponent implements OnInit {
 
   workouts = signal<Workout[]>([]);
   displayedColumns = ['name', 'date', 'notes', 'actions'];
+
+  searchTerm = signal('');
+  filteredWorkouts = computed(() => {
+    const term = this.searchTerm().toLowerCase();
+    if (!term) return this.workouts();
+    return this.workouts().filter(w => w.name.toLowerCase().includes(term));
+  });
 
   ngOnInit(): void {
     this.loadWorkouts();
@@ -63,5 +76,4 @@ export class WorkoutListComponent implements OnInit {
       });
     }
   }
-
 }

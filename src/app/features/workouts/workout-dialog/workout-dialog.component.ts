@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { WorkoutService } from '../../../core/services/workout.service';
 import { Workout } from '../../../core/models';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-workout-dialog',
@@ -15,7 +16,8 @@ import { Workout } from '../../../core/models';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    CommonModule
   ],
   templateUrl: './workout-dialog.component.html',
   styleUrl: './workout-dialog.component.scss'
