@@ -5,26 +5,29 @@
   <!-- Desktop links -->
   <div class="nav-links">
     <a mat-button routerLink="/dashboard" routerLinkActive="active-link">
-      <mat-icon>dashboard</mat-icon> Dashboard
+      <mat-icon>dashboard</mat-icon>{{ 'NAV.DASHBOARD' | translate }}
     </a>
     <a mat-button routerLink="/workouts" routerLinkActive="active-link">
-      <mat-icon>fitness_center</mat-icon> Workouts
+      <mat-icon>fitness_center</mat-icon>{{ 'NAV.WORKOUTS' | translate }}
     </a>
     <a mat-button routerLink="/exercises" routerLinkActive="active-link">
-      <mat-icon>list</mat-icon> Exercises
+      <mat-icon>list</mat-icon> {{ 'NAV.EXERCISES' | translate }}
     </a>
     <a mat-button routerLink="/templates" routerLinkActive="active-link">
-      <mat-icon>bookmarks</mat-icon> Templates
+      <mat-icon>bookmarks</mat-icon> {{ 'NAV.TEMPLATES' | translate }}
     </a>
+    <button mat-button (click)="switchLanguage(currentLang() === 'en' ? 'fr' : 'en')">
+      {{ currentLang() === 'en' ? '🇫🇷 FR' : '🇬🇧 EN' }}
+    </button>
     <a mat-button routerLink="/profile" routerLinkActive="active-link">
-      <mat-icon>person</mat-icon> Profile
+      <mat-icon>person</mat-icon> {{ 'NAV.PROFILE' | translate }}
     </a>
 
     <button mat-icon-button (click)="toggleTheme()" [matTooltip]="isDark() ? 'Light mode' : 'Dark mode'">
       <mat-icon>{{ isDark() ? 'light_mode' : 'dark_mode' }}</mat-icon>
     </button>
     <button mat-button (click)="logout()">
-      <mat-icon>logout</mat-icon> Logout
+      <mat-icon>logout</mat-icon> {{ 'NAV.LOGOUT' | translate }}
     </button>
   </div>
 </mat-toolbar>

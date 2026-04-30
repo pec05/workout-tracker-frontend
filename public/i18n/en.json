@@ -1,0 +1,60 @@
+{
+  "NAV": {
+    "DASHBOARD": "Dashboard",
+    "WORKOUTS": "Workouts",
+    "EXERCISES": "Exercises",
+    "TEMPLATES": "Templates",
+    "PROFILE": "Profile",
+    "LOGOUT": "Logout"
+  },
+  "DASHBOARD": {
+    "TITLE": "Dashboard",
+    "TOTAL_WORKOUTS": "Total Workouts",
+    "TOTAL_VOLUME": "Total Volume",
+    "PERSONAL_RECORDS": "Personal Records",
+    "RECENT_WORKOUTS": "Recent Workouts",
+    "VOLUME_CHART": "Volume per Workout",
+    "FREQUENCY_CHART": "Workout Frequency"
+  },
+  "WORKOUTS": {
+    "TITLE": "My Workouts",
+    "NEW": "New Workout",
+    "SEARCH": "Search workouts...",
+    "NAME": "Name",
+    "DATE": "Date",
+    "NOTES": "Notes",
+    "ACTIONS": "Actions",
+    "EMPTY": "No workouts yet. Start your first workout!",
+    "EXPORT_CSV": "CSV",
+    "EXPORT_PDF": "PDF"
+  },
+  "EXERCISES": {
+    "TITLE": "Exercises",
+    "NEW": "Add Exercise",
+    "NAME": "Name",
+    "MUSCLE_GROUP": "Muscle Group",
+    "DESCRIPTION": "Description",
+    "ACTIONS": "Actions"
+  },
+  "AUTH": {
+    "LOGIN_TITLE": "Welcome back 💪",
+    "LOGIN_SUBTITLE": "Sign in to your account",
+    "REGISTER_TITLE": "Create account 💪",
+    "REGISTER_SUBTITLE": "Start tracking your workouts",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "USERNAME": "Username",
+    "SIGN_IN": "Sign In",
+    "CREATE_ACCOUNT": "Create Account",
+    "NO_ACCOUNT": "Don't have an account?",
+    "HAVE_ACCOUNT": "Already have an account?"
+  },
+  "COMMON": {
+    "SAVE": "Save",
+    "CANCEL": "Cancel",
+    "DELETE": "Delete",
+    "EDIT": "Edit",
+    "CREATE": "Create",
+    "UPDATE": "Update"
+  }
+}

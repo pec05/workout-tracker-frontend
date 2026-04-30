@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from "./shared/components/navbar/navbar.component";
 import { ThemeService } from './core/services/theme.service';
+import { LanguageService } from './core/services/language.service';
 
 @Component({
   selector: 'app-root',
@@ -16,9 +17,11 @@ export class AppComponent implements OnInit {
 
 private router = inject(Router);
 private themeService = inject(ThemeService);
+private languageService = inject(LanguageService);
 
 ngOnInit(): void {
     this.themeService.initTheme();
+    this.languageService.init();
   }
 
 showNavBar(): boolean {

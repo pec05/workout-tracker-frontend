@@ -1,0 +1,60 @@
+{
+  "NAV": {
+    "DASHBOARD": "Tableau de bord",
+    "WORKOUTS": "Séances",
+    "EXERCISES": "Exercices",
+    "TEMPLATES": "Modèles",
+    "PROFILE": "Profil",
+    "LOGOUT": "Déconnexion"
+  },
+  "DASHBOARD": {
+    "TITLE": "Tableau de bord",
+    "TOTAL_WORKOUTS": "Total Séances",
+    "TOTAL_VOLUME": "Volume Total",
+    "PERSONAL_RECORDS": "Records Personnels",
+    "RECENT_WORKOUTS": "Séances Récentes",
+    "VOLUME_CHART": "Volume par Séance",
+    "FREQUENCY_CHART": "Fréquence des Séances"
+  },
+  "WORKOUTS": {
+    "TITLE": "Mes Séances",
+    "NEW": "Nouvelle Séance",
+    "SEARCH": "Rechercher une séance...",
+    "NAME": "Nom",
+    "DATE": "Date",
+    "NOTES": "Notes",
+    "ACTIONS": "Actions",
+    "EMPTY": "Pas encore de séances. Commencez votre première séance!",
+    "EXPORT_CSV": "CSV",
+    "EXPORT_PDF": "PDF"
+  },
+  "EXERCISES": {
+    "TITLE": "Exercices",
+    "NEW": "Ajouter un exercice",
+    "NAME": "Nom",
+    "MUSCLE_GROUP": "Groupe musculaire",
+    "DESCRIPTION": "Description",
+    "ACTIONS": "Actions"
+  },
+  "AUTH": {
+    "LOGIN_TITLE": "Bon retour 💪",
+    "LOGIN_SUBTITLE": "Connectez-vous à votre compte",
+    "REGISTER_TITLE": "Créer un compte 💪",
+    "REGISTER_SUBTITLE": "Commencez à suivre vos séances",
+    "EMAIL": "Email",
+    "PASSWORD": "Mot de passe",
+    "USERNAME": "Nom d'utilisateur",
+    "SIGN_IN": "Se connecter",
+    "CREATE_ACCOUNT": "Créer un compte",
+    "NO_ACCOUNT": "Pas encore de compte?",
+    "HAVE_ACCOUNT": "Déjà un compte?"
+  },
+  "COMMON": {
+    "SAVE": "Sauvegarder",
+    "CANCEL": "Annuler",
+    "DELETE": "Supprimer",
+    "EDIT": "Modifier",
+    "CREATE": "Créer",
+    "UPDATE": "Mettre à jour"
+  }
+}

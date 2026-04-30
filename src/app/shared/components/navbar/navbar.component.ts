@@ -7,6 +7,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { ThemeService } from '../../../core/services/theme.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { LanguageService } from '../../../core/services/language.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +19,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatIconModule,
     RouterLink,
     RouterLinkActive,
-    MatTooltipModule
+    MatTooltipModule,
+    TranslateModule
 ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
@@ -27,6 +30,8 @@ export class NavbarComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
   private themeService = inject(ThemeService);
+  private languageService = inject(LanguageService);
+  currentLang = this.languageService.currentLanguage;
 
   logout(): void {
     this.authService.logout();
@@ -39,6 +44,10 @@ export class NavbarComponent {
 
   isDark(): boolean {
     return this.themeService.isDarkMode();
+  }
+
+  switchLanguage(lang: 'en' | 'fr'): void {
+    this.languageService.switchLanguage(lang);
   }
 
 }
