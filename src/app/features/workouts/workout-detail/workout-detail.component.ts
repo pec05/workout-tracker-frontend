@@ -11,6 +11,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { WorkoutExerciseService } from '../../../core/services/workout-exercice.service';
 import { Workout, WorkoutExercise } from '../../../core/models';
 import { AddExerciseDialogComponent } from '../add-exercise-dialog/add-exercise-dialog.component';
+import { WorkoutTemplateService } from '../../../core/services/workout-template.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-workout-detail',
@@ -33,6 +35,8 @@ export class WorkoutDetailComponent implements OnInit {
   private dialog = inject(MatDialog);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
+  private templateService = inject(WorkoutTemplateService);
+  private snackbar = inject(MatSnackBar);
 
   workout = signal<Workout | null>(null);
   workoutExercises = signal<WorkoutExercise[]>([]);
@@ -76,5 +80,12 @@ export class WorkoutDetailComponent implements OnInit {
 
   goBack(): void {
     this.router.navigate(['/workouts']);
+  }
+
+  saveAsTemplate(): void {
+  this.templateService.saveAsTemplate(this.workoutId).subscribe({
+    next: () => this.snackbar.open('Saved as template! ✅', 'Close', { duration: 3000 }),
+    error: () => this.snackbar.open('Failed to save template', 'Close', { duration: 3000 })
+    });
   }
 }

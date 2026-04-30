@@ -10,6 +10,9 @@
     <button mat-raised-button color="primary" (click)="openAddExerciseDialog()">
       <mat-icon>add</mat-icon> Add Exercise
     </button>
+    <button mat-stroked-button color="accent" (click)="saveAsTemplate()">
+      <mat-icon>bookmark</mat-icon> Save as Template
+    </button>
   </div>
 
   @if (workout()?.notes) {

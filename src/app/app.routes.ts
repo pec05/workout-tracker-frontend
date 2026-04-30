@@ -10,4 +10,5 @@ export const routes: Routes = [
   { path: 'exercises', loadComponent: () => import('./features/exercises/exercise-list/exercise-list.component').then(m => m.ExerciseListComponent), canActivate: [authGuard] },
   { path: 'workouts/:id',  loadComponent: () => import('./features/workouts/workout-detail/workout-detail.component').then(m => m.WorkoutDetailComponent),canActivate: [authGuard] },
   { path: 'profile', loadComponent: () => import('./features/profile/profile/profile.component').then(m => m.ProfileComponent),canActivate: [authGuard]},
+  { path: 'templates', loadComponent: () => import('./features/templates/template-list/template-list.component').then(m => m.TemplateListComponent), canActivate: [authGuard] },
 ];
