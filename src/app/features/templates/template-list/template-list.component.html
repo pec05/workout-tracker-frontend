@@ -1,1 +1,63 @@
-<p>template-list works!</p>
+<div class="template-container">
+  <div class="header">
+    <h1>Workout Templates</h1>
+  </div>
+
+  @if (templates().length === 0) {
+    <mat-card class="empty-card">
+      <mat-card-content>
+        <mat-icon>bookmarks</mat-icon>
+        <p>No templates yet.</p>
+        <p>Go to a workout detail and click <strong>"Save as Template"</strong> to create one!</p>
+        <button mat-raised-button color="primary" routerLink="/workouts">
+          Go to Workouts
+        </button>
+      </mat-card-content>
+    </mat-card>
+  }
+
+  <mat-accordion>
+    @for (template of templates(); track template.id) {
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>{{ template.name }}</mat-panel-title>
+          <mat-panel-description>
+            {{ template.exercises.length }} exercises
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        @for (exercise of template.exercises; track exercise.id) {
+          <div class="exercise-block">
+            <h3>{{ exercise.exerciseName }}</h3>
+            <table mat-table [dataSource]="exercise.sets" class="sets-table">
+              <ng-container matColumnDef="setNumber">
+                <th mat-header-cell *matHeaderCellDef>Set</th>
+                <td mat-cell *matCellDef="let s">{{ s.setNumber }}</td>
+              </ng-container>
+              <ng-container matColumnDef="reps">
+                <th mat-header-cell *matHeaderCellDef>Reps</th>
+                <td mat-cell *matCellDef="let s">{{ s.reps }}</td>
+              </ng-container>
+              <ng-container matColumnDef="weight">
+                <th mat-header-cell *matHeaderCellDef>Weight (kg)</th>
+                <td mat-cell *matCellDef="let s">{{ s.weight }}</td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="['setNumber', 'reps', 'weight']"></tr>
+              <tr mat-row *matRowDef="let row; columns: ['setNumber', 'reps', 'weight']"></tr>
+            </table>
+          </div>
+        }
+
+        <mat-action-row>
+          <button mat-button color="warn" (click)="delete(template.id)">
+            <mat-icon>delete</mat-icon> Delete
+          </button>
+          <button mat-raised-button color="primary" (click)="useTemplate(template.id)">
+            <mat-icon>play_arrow</mat-icon> Use Template
+          </button>
+        </mat-action-row>
+
+      </mat-expansion-panel>
+    }
+  </mat-accordion>
+</div>
