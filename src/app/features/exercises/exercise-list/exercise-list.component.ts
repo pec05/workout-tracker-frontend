@@ -7,6 +7,7 @@ import { MatTableModule } from '@angular/material/table';
 import { Exercise } from '../../../core/models';
 import { ExerciseService } from '../../../core/services/exercise.service';
 import { ExerciseDialogComponent } from '../exercise-dialog/exercise-dialog.component';
+import { ExportService } from '../../../core/services/export.service';
 
 @Component({
   selector: 'app-exercise-list',
@@ -24,6 +25,7 @@ import { ExerciseDialogComponent } from '../exercise-dialog/exercise-dialog.comp
 export class ExerciseListComponent {
   private exerciseService = inject(ExerciseService);
   private dialog = inject(MatDialog);
+  private exportService = inject(ExportService);
 
   exercises = signal<Exercise[]>([]);
   displayedColumns = ['name', 'muscleGroup', 'description', 'actions'];
@@ -56,4 +58,5 @@ export class ExerciseListComponent {
       });
     }
   }
+
 }

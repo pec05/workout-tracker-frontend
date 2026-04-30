@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { DatePipe } from '@angular/common';
 import { MatFormField, MatFormFieldModule, MatLabel } from "@angular/material/form-field";
 import { MatInputModule } from '@angular/material/input';
+import { ExportService } from '../../../core/services/export.service';
 
 @Component({
   selector: 'app-workout-list',
@@ -31,9 +32,11 @@ import { MatInputModule } from '@angular/material/input';
   styleUrl: './workout-list.component.scss'
 })
 export class WorkoutListComponent implements OnInit {
+
   private workoutService = inject(WorkoutService);
   private dialog = inject(MatDialog);
   private router = inject(Router);
+  private exportService = inject(ExportService);
 
   workouts = signal<Workout[]>([]);
   displayedColumns = ['name', 'date', 'notes', 'actions'];
@@ -75,5 +78,13 @@ export class WorkoutListComponent implements OnInit {
         this.loadWorkouts();
       });
     }
+  }
+
+  exportToCSV(): void {
+    this.exportService.exportToCSV(this.workouts());
+  }
+
+  exportToPDF(): void {
+    this.exportService.exportToPDF(this.workouts());
   }
 }
